@@ -3,6 +3,7 @@
 <link rel="import" href="../mdb-radio-list/mdb-radio-list.html">
 <link rel="import" href="../paper-radio-button/paper-radio-button.html">
 <link rel="import" href="../vaadin-grid/vaadin-grid.html">
+<link rel="import" href="../vaadin-grid/vaadin-grid-sorter.html">
 
 <!--
 `mdb-coverage-table`
@@ -54,22 +55,30 @@
     </div>
     <vaadin-grid items='[{"name": "John", "surname": "Lennon", "role": "singer","age":23}, {"name": "Ringo", "surname": "Starr", "role": "drums","age":25}]'>
       <vaadin-grid-column>
-        <template class="header">Name(Job title)</template>
+        <template class="header">
+          <vaadin-grid-sorter path="item.name" direction="asc">Name(Job title)</vaadin-grid-sorter>
+        </template>        
         <template>[[item.name]]</template>
       </vaadin-grid-column>
       <vaadin-grid-column>
-        <template class="header">New Age</template>
+        <template class="header">
+          <vaadin-grid-sorter path="item.age" direction="asc">New Age</vaadin-grid-sorter>
+        </template>        
         <template>[[item.age]]</template>
       </vaadin-grid-column>
       <vaadin-grid-column>
-        <template class="header">Nickname</template>
+        <template class="header">
+          <vaadin-grid-sorter path="name.last" direction="asc">Nickname</vaadin-grid-sorter>
+        </template>        
         <template>[[item.nickname]]</template>
       </vaadin-grid-column>
       <vaadin-grid-column>
-        <template class="header">Employee</template>
+        <template class="header">
+          <vaadin-grid-sorter path="name.last" direction="asc">Employee</vaadin-grid-sorter>
+        </template>        
         <template>[[item.age]]</template>
       </vaadin-grid-column>
-    </vaadin-grid>    
+    </vaadin-grid>
   </template>
 
   <script>
