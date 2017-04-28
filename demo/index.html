@@ -20,7 +20,11 @@
       <h3>Basic mdb-coverage-table demo</h3>
       <demo-snippet>
         <template>
-          <mdb-coverage-table title-text="PARTY_SALES" help-text="Coverage table"></mdb-coverage-table>
+          <mdb-coverage-table 
+              title-text="PARTY_SALES" 
+              help-text="Coverage table" 
+              columns='[{"name":"Name(Job title)","property":"name"},{"name":"New Age","property":"age"},{"name":"Nickname","property":"nickname"},{"name":"Employee","property":"name"}]' 
+              items='[{"name": "John", "surname": "Lennon", "role": "singer","age":23}, {"name": "Ringo", "surname": "Starr", "role": "drums","age":25}]'></mdb-coverage-table>
         </template>
       </demo-snippet>
     </div>

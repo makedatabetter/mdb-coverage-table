@@ -17,6 +17,12 @@
     <style>
        :host {
         display: block;
+        --vaadin-grid-body-cell: {
+          background-color: #fcfdff;
+        }
+        --vaadin-grid-body-row-odd-cell: {
+          background-color: #fff;
+        }
       }
       
        :host mdb-radio-list {
@@ -53,31 +59,16 @@
         </mdb-radio-list>
       </div>
     </div>
-    <vaadin-grid items='[{"name": "John", "surname": "Lennon", "role": "singer","age":23}, {"name": "Ringo", "surname": "Starr", "role": "drums","age":25}]'>
-      <vaadin-grid-column>
-        <template class="header">
-          <vaadin-grid-sorter path="item.name" direction="asc">Name(Job title)</vaadin-grid-sorter>
-        </template>        
-        <template>[[item.name]]</template>
-      </vaadin-grid-column>
-      <vaadin-grid-column>
-        <template class="header">
-          <vaadin-grid-sorter path="item.age" direction="asc">New Age</vaadin-grid-sorter>
-        </template>        
-        <template>[[item.age]]</template>
-      </vaadin-grid-column>
-      <vaadin-grid-column>
-        <template class="header">
-          <vaadin-grid-sorter path="name.last" direction="asc">Nickname</vaadin-grid-sorter>
-        </template>        
-        <template>[[item.nickname]]</template>
-      </vaadin-grid-column>
-      <vaadin-grid-column>
-        <template class="header">
-          <vaadin-grid-sorter path="name.last" direction="asc">Employee</vaadin-grid-sorter>
-        </template>        
-        <template>[[item.age]]</template>
-      </vaadin-grid-column>
+    <vaadin-grid items="{{items}}">
+      <template is="dom-repeat" items="{{columns}}" as="column">
+        <vaadin-grid-column>
+          <!--<template class="header">
+            <vaadin-grid-sorter path="[[column.property]]" direction="asc">[[column.name]]</vaadin-grid-sorter>
+          </template>-->
+          <template class="header">[[column.name]]</template>
+          <template>[[_getPropertyValue(item, column.property)]]</template>
+        </vaadin-grid-column>
+      </template>
     </vaadin-grid>
   </template>
 
@@ -99,8 +90,21 @@
         columns: {
           type: Array,
           value: []
+        },
+
+        items: {
+          type: Array,
+          value: []
         }
       },
+
+      _getPropertyValue: function (item, prop) {
+        return item[prop];
+      },
+
+      _getSorterPath: function (item, prop) {
+        return 'item.' + prop;
+      }
 
     });
   </script>
