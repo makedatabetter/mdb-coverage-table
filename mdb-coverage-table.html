@@ -29,6 +29,10 @@
         display: inline-block;
       }
       
+       :host vaadin-grid {
+        border: 0;
+      }
+      
        :host .table-options {
         border-top: 1px solid #ebeff4;
         border-bottom: 1px solid #ebeff4;
@@ -62,10 +66,9 @@
     <vaadin-grid items="{{items}}">
       <template is="dom-repeat" items="{{columns}}" as="column">
         <vaadin-grid-column>
-          <!--<template class="header">
+          <template class="header">
             <vaadin-grid-sorter path="[[column.property]]" direction="asc">[[column.name]]</vaadin-grid-sorter>
-          </template>-->
-          <template class="header">[[column.name]]</template>
+          </template>
           <template>[[_getPropertyValue(item, column.property)]]</template>
         </vaadin-grid-column>
       </template>
@@ -99,13 +102,8 @@
       },
 
       _getPropertyValue: function (item, prop) {
-        return item[prop];
+        return item ? item[prop] : '';
       },
-
-      _getSorterPath: function (item, prop) {
-        return 'item.' + prop;
-      }
-
     });
   </script>
 </dom-module>
