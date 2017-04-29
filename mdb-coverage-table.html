@@ -25,6 +25,13 @@
         }
       }
       
+       :host vaadin-grid-sorter {
+        --vaadin-grid-sorter-arrow: {
+          display: none !important;
+        }
+        ;
+      }
+      
        :host mdb-radio-list {
         display: inline-block;
       }
@@ -67,7 +74,7 @@
       <template is="dom-repeat" items="{{columns}}" as="column">
         <vaadin-grid-column>
           <template class="header">
-            <vaadin-grid-sorter path="[[column.property]]" direction="asc">[[column.name]]</vaadin-grid-sorter>
+            <vaadin-grid-sorter path="[[column.property]]">[[column.name]]</vaadin-grid-sorter>
           </template>
           <template>[[_getPropertyValue(item, column.property)]]</template>
         </vaadin-grid-column>
