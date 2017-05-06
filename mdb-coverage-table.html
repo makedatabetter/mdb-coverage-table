@@ -8,6 +8,14 @@
 <!--
 `mdb-coverage-table`
 
+### Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--mdb-coverage-table-options-padding` | Top and bottom padding applied to coverage table options sections | `10px`
+`--mdb-coverage-table-options` | Mixin applied to coverage table options section | `{}`
 
 @demo demo/index.html 
 -->
@@ -24,8 +32,7 @@
           background-color: #fff;
         }
       }
-      
-       /*:host vaadin-grid-sorter {
+      /*:host vaadin-grid-sorter {
         --vaadin-grid-sorter-arrow: {
           display: none !important;
         }
@@ -41,17 +48,18 @@
       }
       
        :host .table-options {
-        border-top: 1px solid #ebeff4;
-        border-bottom: 1px solid #ebeff4;
-        padding-top: var(--standard-padding, 20px);
-        padding-bottom: var(--standard-padding, 20px);
         display: flex;
         flex-wrap: nowrap;
         flex-direction: row;
         justify-content: space-between;
+        border-top: 1px solid #ebeff4;
+        border-bottom: 1px solid #ebeff4;
+        padding-top: var(--mdb-coverage-table-options-padding, 10px);
+        padding-bottom: var(--mdb-coverage-table-options-padding, 10px);
+        @apply(--mdb-coverage-table-options)
       }
     </style>
-    <mdb-title help-text="{{help-text}}" level="2">{{title-text}}</mdb-title>
+    <mdb-title help-text="{{helpText}}" level="2">{{title-text}}</mdb-title>
     <div class="table-options">
       <div class="column-options">
         Show Columns
