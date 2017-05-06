@@ -17,6 +17,7 @@ Custom property | Description | Default
 `--mdb-coverage-table-options-padding` | Top and bottom padding applied to coverage table options sections | `10px`
 `--mdb-coverage-table-options` | Mixin applied to coverage table options section | `{}`
 `--mdb-coverage-table-cell` | Mixin applied to coverage table cells | `{}`
+`--mdb-coverage-table-body-cell` | Mixin applied to coverage table cells | `{}`
 
 @demo demo/index.html 
 -->
@@ -31,6 +32,7 @@ Custom property | Description | Default
         }
         --vaadin-grid-body-cell: {
           background-color: #fcfdff;
+          @apply(--mdb-coverage-table-body-cell);
         }
         --vaadin-grid-body-row-odd-cell: {
           background-color: #fff;
@@ -49,6 +51,7 @@ Custom property | Description | Default
       
        :host vaadin-grid {
         border: 0;
+        @apply(--mdb-coverage-table);
       }
       
        :host .table-options {
