@@ -110,7 +110,9 @@ Custom property | Description | Default
             </mdb-vaadin-grid-column-selector>
           </template>
           <template>
-            <div class$="[[_isSelected(selectedColumn, column.property)]] mdb-cell">[[_getPropertyValue(item, column.property)]]</div>
+            <mdb-vaadin-grid-column-selector class$="[[_isSelected(selectedColumn, column.property)]] mdb-cell" path="[[column.property]]">
+              [[_getPropertyValue(item, column.property)]]
+            </mdb-vaadin-grid-column-selector>
           </template>
         </vaadin-grid-column>
       </template>
