@@ -29,8 +29,7 @@ Custom property | Description | Default
        :host {
         display: block;
         --vaadin-grid-cell: {
-          padding: 0;
-          @apply(--mdb-coverage-table-cell);
+          padding: 0;          
         }
         --vaadin-grid-body-cell: {
           background-color: #fcfdff;
@@ -76,6 +75,7 @@ Custom property | Description | Default
         padding: 8px;
         width: 100%;
         height: 100%;
+        @apply(--mdb-coverage-table-cell);
       }
       
        :host .selected {
