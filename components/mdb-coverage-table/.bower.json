@@ -1,0 +1,27 @@
+{
+  "name": "mdb-coverage-table",
+  "main": "mdb-coverage-table.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0",
+    "mdb-radio-list": "git://github.com/skamble89/mdb-radio-list.git",
+    "mdb-title": "git://github.com/skamble89/mdb-title.git",
+    "vaadin-grid": "vaadin/vaadin-grid#^2.0.1"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  },
+  "homepage": "https://github.com/skamble89/mdb-coverage-table",
+  "_release": "775c8f9cd5",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "775c8f9cd55db91a6b01724b44dd715602d74b70"
+  },
+  "_source": "https://github.com/skamble89/mdb-coverage-table.git",
+  "_target": "master",
+  "_originalSource": "skamble89/mdb-coverage-table",
+  "_direct": true
+}
