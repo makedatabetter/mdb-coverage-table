@@ -15,6 +15,7 @@ The following custom properties and mixins are available for styling:
 
 Custom property | Description | Default
 ----------------|-------------|----------
+`--mdb-coverage-table-title` | Mixin applied to coverage table title | `{}`
 `--mdb-coverage-table-radio-list` | Mixin applied to both the radio lists in coverage table | `{}`
 `--mdb-coverage-table-options-padding` | Top and bottom padding applied to coverage table options sections | `10px`
 `--mdb-coverage-table-options` | Mixin applied to coverage table options section | `{}`
@@ -46,6 +47,10 @@ Custom property | Description | Default
         }
         ;
       }*/
+
+      :host mdb-title{
+        @apply(--mdb-coverage-table-title);
+      }
 
        :host mdb-radio-list {
         display: inline-block;
