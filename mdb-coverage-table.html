@@ -15,10 +15,14 @@ The following custom properties and mixins are available for styling:
 
 Custom property | Description | Default
 ----------------|-------------|----------
+`--mdb-coverage-table-title` | Mixin applied to coverage table title | `{}`
+`--mdb-coverage-table-radio-list` | Mixin applied to both the radio lists in coverage table | `{}`
 `--mdb-coverage-table-options-padding` | Top and bottom padding applied to coverage table options sections | `10px`
 `--mdb-coverage-table-options` | Mixin applied to coverage table options section | `{}`
 `--mdb-coverage-table-cell` | Mixin applied to coverage table cells | `{}`
+`--mdb-coverage-table-header-cell` | Mixin applied to coverage table header cells | `{}`
 `--mdb-coverage-table-body-cell` | Mixin applied to coverage table cells | `{}`
+`--mdb-coverage-table-odd-row-cell` | Mixin applied to coverage table odd row cells | `{}`
 
 @demo demo/index.html 
 -->
@@ -29,32 +33,31 @@ Custom property | Description | Default
        :host {
         display: block;
         --vaadin-grid-cell: {
-          padding: 0;          
+          padding: 0;
         }
-        --vaadin-grid-body-cell: {
-          background-color: #fcfdff;
+        --vaadin-grid-header-cell: {
+          @apply(--mdb-coverage-table-header-cell);
+        }
+        --vaadin-grid-body-cell: {          
           @apply(--mdb-coverage-table-body-cell);
         }
-        --vaadin-grid-body-row-odd-cell: {
-          background-color: #fff;
+        --vaadin-grid-body-row-odd-cell: {          
+          @apply(--mdb-coverage-table-odd-row-cell);
         }
       }
-      /*:host vaadin-grid-sorter {
-        --vaadin-grid-sorter-arrow: {
-          display: none !important;
-        }
-        ;
-      }*/
-      
+
+       :host mdb-title {
+        @apply(--mdb-coverage-table-title);
+      }
+
        :host mdb-radio-list {
         display: inline-block;
       }
-      
+
        :host vaadin-grid {
-        border: 0;
         @apply(--mdb-coverage-table);
       }
-      
+
        :host .table-options {
         display: flex;
         flex-wrap: nowrap;
@@ -66,18 +69,22 @@ Custom property | Description | Default
         padding-bottom: var(--mdb-coverage-table-options-padding, 10px);
         @apply(--mdb-coverage-table-options)
       }
-      
+
+       :host mdb-radio-list {
+        @apply(--mdb-coverage-table-radio-list);
+      }
+
        :host mdb-vaadin-grid-column-selector {
         padding: 8px;
       }
-      
+
        :host .mdb-cell {
         padding: 8px;
         width: 100%;
         height: 100%;
         @apply(--mdb-coverage-table-cell);
       }
-      
+
        :host .selected {
         background-color: #f3f6fb;
       }
